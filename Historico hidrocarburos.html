@@ -1,0 +1,996 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.340">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Augusto Alvarez">
+<meta name="dcterms.date" content="2024-01-14">
+
+<title>HIDROCARBUROS - UN ANALISIS DESCRIPTIVO</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="Historico hidrocarburos_files/libs/clipboard/clipboard.min.js"></script>
+<script src="Historico hidrocarburos_files/libs/quarto-html/quarto.js"></script>
+<script src="Historico hidrocarburos_files/libs/quarto-html/popper.min.js"></script>
+<script src="Historico hidrocarburos_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="Historico hidrocarburos_files/libs/quarto-html/anchor.min.js"></script>
+<link href="Historico hidrocarburos_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="Historico hidrocarburos_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="Historico hidrocarburos_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="Historico hidrocarburos_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="Historico hidrocarburos_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+
+<script src="Historico hidrocarburos_files/libs/htmlwidgets-1.6.4/htmlwidgets.js"></script>
+<script src="Historico hidrocarburos_files/libs/plotly-binding-4.10.3/plotly.js"></script>
+<script src="Historico hidrocarburos_files/libs/typedarray-0.1/typedarray.min.js"></script>
+<script src="Historico hidrocarburos_files/libs/jquery-3.5.1/jquery.min.js"></script>
+<link href="Historico hidrocarburos_files/libs/crosstalk-1.2.1/css/crosstalk.min.css" rel="stylesheet">
+<script src="Historico hidrocarburos_files/libs/crosstalk-1.2.1/js/crosstalk.min.js"></script>
+<link href="Historico hidrocarburos_files/libs/plotly-htmlwidgets-css-2.11.1/plotly-htmlwidgets.css" rel="stylesheet">
+<script src="Historico hidrocarburos_files/libs/plotly-main-2.11.1/plotly-latest.min.js"></script>
+<script src="Historico hidrocarburos_files/libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="Historico hidrocarburos_files/libs/lightable-0.0.1/lightable.css" rel="stylesheet">
+
+
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+<div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+  <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#introducción" id="toc-introducción" class="nav-link active" data-scroll-target="#introducción">Introducción</a></li>
+  <li><a href="#líquidos" id="toc-líquidos" class="nav-link" data-scroll-target="#líquidos">Líquidos</a>
+  <ul class="collapse">
+  <li><a href="#generalidades" id="toc-generalidades" class="nav-link" data-scroll-target="#generalidades">Generalidades</a></li>
+  </ul></li>
+  <li><a href="#histórico-de-la-producción-trimestral-de-líquidos" id="toc-histórico-de-la-producción-trimestral-de-líquidos" class="nav-link" data-scroll-target="#histórico-de-la-producción-trimestral-de-líquidos">Histórico de la Producción Trimestral de Líquidos</a>
+  <ul class="collapse">
+  <li><a href="#variación-de-la-producción-respecto-al-año-anterior" id="toc-variación-de-la-producción-respecto-al-año-anterior" class="nav-link" data-scroll-target="#variación-de-la-producción-respecto-al-año-anterior">Variación de la producción respecto al año anterior</a></li>
+  </ul></li>
+  <li><a href="#provincias-productoras-de-líquidos" id="toc-provincias-productoras-de-líquidos" class="nav-link" data-scroll-target="#provincias-productoras-de-líquidos">Provincias Productoras de Líquidos</a></li>
+  </ul>
+</nav>
+</div>
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<div class="quarto-title-block"><div><h1 class="title">HIDROCARBUROS - UN ANALISIS DESCRIPTIVO</h1><button type="button" class="btn code-tools-button dropdown-toggle" id="quarto-code-tools-menu" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi"></i> Code</button><ul class="dropdown-menu dropdown-menu-end" aria-labelelledby="quarto-code-tools-menu"><li><a id="quarto-show-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Show All Code</a></li><li><a id="quarto-hide-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Hide All Code</a></li><li><hr class="dropdown-divider"></li><li><a id="quarto-view-source" class="dropdown-item" href="javascript:void(0)" role="button">View Source</a></li></ul></div></div>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Augusto Alvarez </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">January 14, 2024</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+</header>
+
+<section id="introducción" class="level2">
+<h2 class="anchored" data-anchor-id="introducción">Introducción</h2>
+<p>El presente análisis fue inspirado en el boletín estadístico de <em>Hidrocarburos de Santa Cruz</em> del Instituto Cruceño de Estadística (ICE). Muchos de los datos fueron suministrados tanto por el Viceministerio de Exploración y Explotación de Recursos Energéticos como de la Dirección de Minas, Hidrocarburos y Energía.</p>
+</section>
+<section id="líquidos" class="level2">
+<h2 class="anchored" data-anchor-id="líquidos">Líquidos</h2>
+<p>Los líquidos de petróleo, comúnmente conocidos como crudo, son la materia prima clave para la producción de una amplia gama de productos. Estos incluyen gasolina, diésel, queroseno, aceites lubricantes, asfalto, y productos petroquímicos que se utilizan en la fabricación de plásticos, fertilizantes y productos químicos.</p>
+<section id="generalidades" class="level3">
+<h3 class="anchored" data-anchor-id="generalidades">Generalidades</h3>
+<p>Veamos ahora algunos datos de conocimiento general dentro del rubro petrolero boliviano y cruceño.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Bolivia
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Bolivia cuenta con 4 departamentos productores de liquidos: Tarija, Santa Cruz, Chuquisaca y Cochabamba.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Segundo mayor productor
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Al 2022 a nivel nacional, Santa Cruz fue el segundo productor con una participación del 39.6%.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Santa Cruz
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Santa Cruz cuenta con 5 provincias productoras de líquidos: Cordillera, Ichilo, Sara, Warnes y Andrés Ibáñez. Cordillera produjo en 2022 un 81.7% de la producción del departamento.</p>
+</div>
+</div>
+</section>
+</section>
+<section id="histórico-de-la-producción-trimestral-de-líquidos" class="level2">
+<h2 class="anchored" data-anchor-id="histórico-de-la-producción-trimestral-de-líquidos">Histórico de la Producción Trimestral de Líquidos</h2>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Creamos el vector con los meses por número:</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>nmeses <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>,<span class="dv">7</span>,<span class="dv">8</span>,<span class="dv">9</span>,<span class="dv">10</span>,<span class="dv">11</span>,<span class="dv">12</span>)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co">#Creamos la columna que contenga el vector:</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>data_hidro <span class="ot">&lt;-</span> data_hidro <span class="sc">%&gt;%</span> </span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">nMESES =</span> <span class="fu">rep</span>(nmeses, <span class="at">length.out =</span> <span class="fu">n</span>()))</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="co">#Usamos la función quarter para crear por orden los trimestres:</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>data_hidro<span class="sc">$</span>TRIM <span class="ot">&lt;-</span> <span class="fu">quarter</span>(data_hidro<span class="sc">$</span>nMESES, <span class="at">type =</span> <span class="st">"quarter"</span>, <span class="at">fiscal_start =</span> <span class="dv">1</span>)</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="co">#Creamos el histograma:</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>hist1 <span class="ot">&lt;-</span> data_hidro <span class="sc">%&gt;%</span> </span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(AÑO, TRIM) <span class="sc">%&gt;%</span> </span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">produ_total =</span> <span class="fu">sum</span>(LIQUIDOS))</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>g <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(hist1, <span class="fu">aes</span>(<span class="at">x =</span> TRIM, <span class="at">y =</span> produ_total))<span class="sc">+</span></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">position =</span> <span class="st">"dodge"</span>,<span class="at">stat =</span> <span class="st">"identity"</span>, <span class="at">fill =</span> <span class="st">"#74C476"</span>, <span class="at">color =</span> <span class="st">"black"</span>)<span class="sc">+</span></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Producción trimestral de líquidos en Santa Cruz"</span>, <span class="at">x =</span> <span class="st">"Trimestre"</span>, <span class="at">y =</span> <span class="st">"Producción total (MBbls)"</span>) <span class="sc">+</span></span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_grid</span>(<span class="sc">~</span>AÑO)<span class="sc">+</span></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">labels =</span> scales<span class="sc">::</span><span class="fu">comma_format</span>(<span class="at">scale =</span> <span class="fl">1e-3</span>, <span class="at">big.mark =</span> <span class="st">","</span>)) <span class="co">#Línea de código para modificar labels en Y.</span></span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplotly</span>(g)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div class="plotly html-widget html-fill-item" id="htmlwidget-d00ca7dc2d669ee61725" style="width:100%;height:464px;"></div>
+<script type="application/json" data-for="htmlwidget-d00ca7dc2d669ee61725">{"x":{"data":[{"orientation":"v","width":[0.9,0.9,0.9,0.9],"base":[0,0,0,0],"x":[1,2,3,4],"y":[598821,574483,847859,943446.55],"text":["TRIM: 1<br />produ_total:  598821.0","TRIM: 2<br />produ_total:  574483.0","TRIM: 3<br />produ_total:  847859.0","TRIM: 4<br />produ_total:  943446.6"],"type":"bar","textposition":"none","marker":{"autocolorscale":false,"color":"rgba(116,196,118,1)","line":{"width":1.88976377952756,"color":"rgba(0,0,0,1)"}},"showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"orientation":"v","width":[0.9,0.9,0.9,0.9],"base":[0,0,0,0],"x":[1,2,3,4],"y":[917665.86,1164150.49,1292483.37,1299317.12],"text":["TRIM: 1<br />produ_total:  917665.9","TRIM: 2<br />produ_total: 1164150.5","TRIM: 3<br />produ_total: 1292483.4","TRIM: 4<br />produ_total: 1299317.1"],"type":"bar","textposition":"none","marker":{"autocolorscale":false,"color":"rgba(116,196,118,1)","line":{"width":1.88976377952756,"color":"rgba(0,0,0,1)"}},"showlegend":false,"xaxis":"x2","yaxis":"y","hoverinfo":"text","frame":null},{"orientation":"v","width":[0.9,0.9,0.9,0.9],"base":[0,0,0,0],"x":[1,2,3,4],"y":[1220268.83,1240035.0726232,1325829.969,1032878.3],"text":["TRIM: 1<br />produ_total: 1220268.8","TRIM: 2<br />produ_total: 1240035.1","TRIM: 3<br />produ_total: 1325830.0","TRIM: 4<br />produ_total: 1032878.3"],"type":"bar","textposition":"none","marker":{"autocolorscale":false,"color":"rgba(116,196,118,1)","line":{"width":1.88976377952756,"color":"rgba(0,0,0,1)"}},"showlegend":false,"xaxis":"x3","yaxis":"y","hoverinfo":"text","frame":null},{"orientation":"v","width":[0.9,0.9,0.9,0.9],"base":[0,0,0,0],"x":[1,2,3,4],"y":[991153.69,1221896.59,1129184.87,1387216.77],"text":["TRIM: 1<br />produ_total:  991153.7","TRIM: 2<br />produ_total: 1221896.6","TRIM: 3<br />produ_total: 1129184.9","TRIM: 4<br />produ_total: 1387216.8"],"type":"bar","textposition":"none","marker":{"autocolorscale":false,"color":"rgba(116,196,118,1)","line":{"width":1.88976377952756,"color":"rgba(0,0,0,1)"}},"showlegend":false,"xaxis":"x4","yaxis":"y","hoverinfo":"text","frame":null},{"orientation":"v","width":[0.9,0.9,0.9,0.9],"base":[0,0,0,0],"x":[1,2,3,4],"y":[1185775,935320,1286441,1408383],"text":["TRIM: 1<br />produ_total: 1185775.0","TRIM: 2<br />produ_total:  935320.0","TRIM: 3<br />produ_total: 1286441.0","TRIM: 4<br />produ_total: 1408383.0"],"type":"bar","textposition":"none","marker":{"autocolorscale":false,"color":"rgba(116,196,118,1)","line":{"width":1.88976377952756,"color":"rgba(0,0,0,1)"}},"showlegend":false,"xaxis":"x5","yaxis":"y","hoverinfo":"text","frame":null},{"orientation":"v","width":[0.9,0.9,0.9,0.9],"base":[0,0,0,0],"x":[1,2,3,4],"y":[1014602.89,1265845.8,1335056.18,1321451.31],"text":["TRIM: 1<br />produ_total: 1014602.9","TRIM: 2<br />produ_total: 1265845.8","TRIM: 3<br />produ_total: 1335056.2","TRIM: 4<br />produ_total: 1321451.3"],"type":"bar","textposition":"none","marker":{"autocolorscale":false,"color":"rgba(116,196,118,1)","line":{"width":1.88976377952756,"color":"rgba(0,0,0,1)"}},"showlegend":false,"xaxis":"x6","yaxis":"y","hoverinfo":"text","frame":null},{"orientation":"v","width":[0.9,0.9,0.9,0.9],"base":[0,0,0,0],"x":[1,2,3,4],"y":[1359231,1320779,1269738,1206372.86],"text":["TRIM: 1<br />produ_total: 1359231.0","TRIM: 2<br />produ_total: 1320779.0","TRIM: 3<br />produ_total: 1269738.0","TRIM: 4<br />produ_total: 1206372.9"],"type":"bar","textposition":"none","marker":{"autocolorscale":false,"color":"rgba(116,196,118,1)","line":{"width":1.88976377952756,"color":"rgba(0,0,0,1)"}},"showlegend":false,"xaxis":"x7","yaxis":"y","hoverinfo":"text","frame":null},{"orientation":"v","width":[0.9,0.9,0.9,0.9],"base":[0,0,0,0],"x":[1,2,3,4],"y":[1163411,1163411,363044,0],"text":["TRIM: 1<br />produ_total: 1163411.0","TRIM: 2<br />produ_total: 1163411.0","TRIM: 3<br />produ_total:  363044.0","TRIM: 4<br />produ_total:       0.0"],"type":"bar","textposition":"none","marker":{"autocolorscale":false,"color":"rgba(116,196,118,1)","line":{"width":1.88976377952756,"color":"rgba(0,0,0,1)"}},"showlegend":false,"xaxis":"x8","yaxis":"y","hoverinfo":"text","frame":null}],"layout":{"margin":{"t":55.4520547945205,"r":18.9954337899543,"b":40.1826484018265,"l":54.7945205479452},"plot_bgcolor":"rgba(235,235,235,1)","paper_bgcolor":"rgba(255,255,255,1)","font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187},"title":{"text":"Producción trimestral de líquidos en Santa Cruz","font":{"color":"rgba(0,0,0,1)","family":"","size":17.5342465753425},"x":0,"xref":"paper"},"xaxis":{"domain":[0,0.120923026744945],"automargin":true,"type":"linear","autorange":false,"range":[0.355,4.645],"tickmode":"array","ticktext":["1","2","3","4"],"tickvals":[1,2,3,4],"categoryorder":"array","categoryarray":["1","2","3","4"],"nticks":null,"ticks":"outside","tickcolor":"rgba(51,51,51,1)","ticklen":3.65296803652968,"tickwidth":0.66417600664176,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":11.689497716895},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(255,255,255,1)","gridwidth":0.66417600664176,"zeroline":false,"anchor":"y","title":"","hoverformat":".2f"},"annotations":[{"text":"Trimestre","x":0.5,"y":0,"showarrow":false,"ax":0,"ay":0,"font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187},"xref":"paper","yref":"paper","textangle":-0,"xanchor":"center","yanchor":"top","annotationType":"axis","yshift":-21.9178082191781},{"text":"Producción total (MBbls)","x":0,"y":0.5,"showarrow":false,"ax":0,"ay":0,"font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187},"xref":"paper","yref":"paper","textangle":-90,"xanchor":"right","yanchor":"center","annotationType":"axis","xshift":-39.4520547945205},{"text":"2016","x":0.0604615133724723,"y":1,"showarrow":false,"ax":0,"ay":0,"font":{"color":"rgba(26,26,26,1)","family":"","size":11.689497716895},"xref":"paper","yref":"paper","textangle":-0,"xanchor":"center","yanchor":"bottom"},{"text":"2017","x":0.1875,"y":1,"showarrow":false,"ax":0,"ay":0,"font":{"color":"rgba(26,26,26,1)","family":"","size":11.689497716895},"xref":"paper","yref":"paper","textangle":-0,"xanchor":"center","yanchor":"bottom"},{"text":"2018","x":0.3125,"y":1,"showarrow":false,"ax":0,"ay":0,"font":{"color":"rgba(26,26,26,1)","family":"","size":11.689497716895},"xref":"paper","yref":"paper","textangle":-0,"xanchor":"center","yanchor":"bottom"},{"text":"2019","x":0.4375,"y":1,"showarrow":false,"ax":0,"ay":0,"font":{"color":"rgba(26,26,26,1)","family":"","size":11.689497716895},"xref":"paper","yref":"paper","textangle":-0,"xanchor":"center","yanchor":"bottom"},{"text":"2020","x":0.5625,"y":1,"showarrow":false,"ax":0,"ay":0,"font":{"color":"rgba(26,26,26,1)","family":"","size":11.689497716895},"xref":"paper","yref":"paper","textangle":-0,"xanchor":"center","yanchor":"bottom"},{"text":"2021","x":0.6875,"y":1,"showarrow":false,"ax":0,"ay":0,"font":{"color":"rgba(26,26,26,1)","family":"","size":11.689497716895},"xref":"paper","yref":"paper","textangle":-0,"xanchor":"center","yanchor":"bottom"},{"text":"2022","x":0.8125,"y":1,"showarrow":false,"ax":0,"ay":0,"font":{"color":"rgba(26,26,26,1)","family":"","size":11.689497716895},"xref":"paper","yref":"paper","textangle":-0,"xanchor":"center","yanchor":"bottom"},{"text":"2023","x":0.939538486627528,"y":1,"showarrow":false,"ax":0,"ay":0,"font":{"color":"rgba(26,26,26,1)","family":"","size":11.689497716895},"xref":"paper","yref":"paper","textangle":-0,"xanchor":"center","yanchor":"bottom"}],"yaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[-70419.15,1478802.15],"tickmode":"array","ticktext":["0","500","1,000"],"tickvals":[0,500000,1000000],"categoryorder":"array","categoryarray":["0","500","1,000"],"nticks":null,"ticks":"outside","tickcolor":"rgba(51,51,51,1)","ticklen":3.65296803652968,"tickwidth":0.66417600664176,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":11.689497716895},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(255,255,255,1)","gridwidth":0.66417600664176,"zeroline":false,"anchor":"x","title":"","hoverformat":".2f"},"shapes":[{"type":"rect","fillcolor":null,"line":{"color":null,"width":0,"linetype":[]},"yref":"paper","xref":"paper","x0":0,"x1":0.120923026744945,"y0":0,"y1":1},{"type":"rect","fillcolor":"rgba(217,217,217,1)","line":{"color":"transparent","width":0.66417600664176,"linetype":"solid"},"yref":"paper","xref":"paper","x0":0,"x1":0.120923026744945,"y0":0,"y1":23.37899543379,"yanchor":1,"ysizemode":"pixel"},{"type":"rect","fillcolor":null,"line":{"color":null,"width":0,"linetype":[]},"yref":"paper","xref":"paper","x0":0.129076973255055,"x1":0.245923026744945,"y0":0,"y1":1},{"type":"rect","fillcolor":"rgba(217,217,217,1)","line":{"color":"transparent","width":0.66417600664176,"linetype":"solid"},"yref":"paper","xref":"paper","x0":0.129076973255055,"x1":0.245923026744945,"y0":0,"y1":23.37899543379,"yanchor":1,"ysizemode":"pixel"},{"type":"rect","fillcolor":null,"line":{"color":null,"width":0,"linetype":[]},"yref":"paper","xref":"paper","x0":0.254076973255055,"x1":0.370923026744945,"y0":0,"y1":1},{"type":"rect","fillcolor":"rgba(217,217,217,1)","line":{"color":"transparent","width":0.66417600664176,"linetype":"solid"},"yref":"paper","xref":"paper","x0":0.254076973255055,"x1":0.370923026744945,"y0":0,"y1":23.37899543379,"yanchor":1,"ysizemode":"pixel"},{"type":"rect","fillcolor":null,"line":{"color":null,"width":0,"linetype":[]},"yref":"paper","xref":"paper","x0":0.379076973255055,"x1":0.495923026744945,"y0":0,"y1":1},{"type":"rect","fillcolor":"rgba(217,217,217,1)","line":{"color":"transparent","width":0.66417600664176,"linetype":"solid"},"yref":"paper","xref":"paper","x0":0.379076973255055,"x1":0.495923026744945,"y0":0,"y1":23.37899543379,"yanchor":1,"ysizemode":"pixel"},{"type":"rect","fillcolor":null,"line":{"color":null,"width":0,"linetype":[]},"yref":"paper","xref":"paper","x0":0.504076973255055,"x1":0.620923026744945,"y0":0,"y1":1},{"type":"rect","fillcolor":"rgba(217,217,217,1)","line":{"color":"transparent","width":0.66417600664176,"linetype":"solid"},"yref":"paper","xref":"paper","x0":0.504076973255055,"x1":0.620923026744945,"y0":0,"y1":23.37899543379,"yanchor":1,"ysizemode":"pixel"},{"type":"rect","fillcolor":null,"line":{"color":null,"width":0,"linetype":[]},"yref":"paper","xref":"paper","x0":0.629076973255055,"x1":0.745923026744945,"y0":0,"y1":1},{"type":"rect","fillcolor":"rgba(217,217,217,1)","line":{"color":"transparent","width":0.66417600664176,"linetype":"solid"},"yref":"paper","xref":"paper","x0":0.629076973255055,"x1":0.745923026744945,"y0":0,"y1":23.37899543379,"yanchor":1,"ysizemode":"pixel"},{"type":"rect","fillcolor":null,"line":{"color":null,"width":0,"linetype":[]},"yref":"paper","xref":"paper","x0":0.754076973255055,"x1":0.870923026744945,"y0":0,"y1":1},{"type":"rect","fillcolor":"rgba(217,217,217,1)","line":{"color":"transparent","width":0.66417600664176,"linetype":"solid"},"yref":"paper","xref":"paper","x0":0.754076973255055,"x1":0.870923026744945,"y0":0,"y1":23.37899543379,"yanchor":1,"ysizemode":"pixel"},{"type":"rect","fillcolor":null,"line":{"color":null,"width":0,"linetype":[]},"yref":"paper","xref":"paper","x0":0.879076973255055,"x1":1,"y0":0,"y1":1},{"type":"rect","fillcolor":"rgba(217,217,217,1)","line":{"color":"transparent","width":0.66417600664176,"linetype":"solid"},"yref":"paper","xref":"paper","x0":0.879076973255055,"x1":1,"y0":0,"y1":23.37899543379,"yanchor":1,"ysizemode":"pixel"}],"xaxis2":{"type":"linear","autorange":false,"range":[0.355,4.645],"tickmode":"array","ticktext":["1","2","3","4"],"tickvals":[1,2,3,4],"categoryorder":"array","categoryarray":["1","2","3","4"],"nticks":null,"ticks":"outside","tickcolor":"rgba(51,51,51,1)","ticklen":3.65296803652968,"tickwidth":0.66417600664176,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":11.689497716895},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"domain":[0.129076973255055,0.245923026744945],"gridcolor":"rgba(255,255,255,1)","gridwidth":0.66417600664176,"zeroline":false,"anchor":"y","title":"","hoverformat":".2f"},"xaxis3":{"type":"linear","autorange":false,"range":[0.355,4.645],"tickmode":"array","ticktext":["1","2","3","4"],"tickvals":[1,2,3,4],"categoryorder":"array","categoryarray":["1","2","3","4"],"nticks":null,"ticks":"outside","tickcolor":"rgba(51,51,51,1)","ticklen":3.65296803652968,"tickwidth":0.66417600664176,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":11.689497716895},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"domain":[0.254076973255055,0.370923026744945],"gridcolor":"rgba(255,255,255,1)","gridwidth":0.66417600664176,"zeroline":false,"anchor":"y","title":"","hoverformat":".2f"},"xaxis4":{"type":"linear","autorange":false,"range":[0.355,4.645],"tickmode":"array","ticktext":["1","2","3","4"],"tickvals":[1,2,3,4],"categoryorder":"array","categoryarray":["1","2","3","4"],"nticks":null,"ticks":"outside","tickcolor":"rgba(51,51,51,1)","ticklen":3.65296803652968,"tickwidth":0.66417600664176,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":11.689497716895},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"domain":[0.379076973255055,0.495923026744945],"gridcolor":"rgba(255,255,255,1)","gridwidth":0.66417600664176,"zeroline":false,"anchor":"y","title":"","hoverformat":".2f"},"xaxis5":{"type":"linear","autorange":false,"range":[0.355,4.645],"tickmode":"array","ticktext":["1","2","3","4"],"tickvals":[1,2,3,4],"categoryorder":"array","categoryarray":["1","2","3","4"],"nticks":null,"ticks":"outside","tickcolor":"rgba(51,51,51,1)","ticklen":3.65296803652968,"tickwidth":0.66417600664176,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":11.689497716895},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"domain":[0.504076973255055,0.620923026744945],"gridcolor":"rgba(255,255,255,1)","gridwidth":0.66417600664176,"zeroline":false,"anchor":"y","title":"","hoverformat":".2f"},"xaxis6":{"type":"linear","autorange":false,"range":[0.355,4.645],"tickmode":"array","ticktext":["1","2","3","4"],"tickvals":[1,2,3,4],"categoryorder":"array","categoryarray":["1","2","3","4"],"nticks":null,"ticks":"outside","tickcolor":"rgba(51,51,51,1)","ticklen":3.65296803652968,"tickwidth":0.66417600664176,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":11.689497716895},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"domain":[0.629076973255055,0.745923026744945],"gridcolor":"rgba(255,255,255,1)","gridwidth":0.66417600664176,"zeroline":false,"anchor":"y","title":"","hoverformat":".2f"},"xaxis7":{"type":"linear","autorange":false,"range":[0.355,4.645],"tickmode":"array","ticktext":["1","2","3","4"],"tickvals":[1,2,3,4],"categoryorder":"array","categoryarray":["1","2","3","4"],"nticks":null,"ticks":"outside","tickcolor":"rgba(51,51,51,1)","ticklen":3.65296803652968,"tickwidth":0.66417600664176,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":11.689497716895},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"domain":[0.754076973255055,0.870923026744945],"gridcolor":"rgba(255,255,255,1)","gridwidth":0.66417600664176,"zeroline":false,"anchor":"y","title":"","hoverformat":".2f"},"xaxis8":{"type":"linear","autorange":false,"range":[0.355,4.645],"tickmode":"array","ticktext":["1","2","3","4"],"tickvals":[1,2,3,4],"categoryorder":"array","categoryarray":["1","2","3","4"],"nticks":null,"ticks":"outside","tickcolor":"rgba(51,51,51,1)","ticklen":3.65296803652968,"tickwidth":0.66417600664176,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":11.689497716895},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"domain":[0.879076973255055,1],"gridcolor":"rgba(255,255,255,1)","gridwidth":0.66417600664176,"zeroline":false,"anchor":"y","title":"","hoverformat":".2f"},"showlegend":false,"legend":{"bgcolor":"rgba(255,255,255,1)","bordercolor":"transparent","borderwidth":1.88976377952756,"font":{"color":"rgba(0,0,0,1)","family":"","size":11.689497716895}},"hovermode":"closest","barmode":"relative"},"config":{"doubleClick":"reset","modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"source":"A","attrs":{"21a43886601e":{"x":{},"y":{},"type":"bar"}},"cur_data":"21a43886601e","visdat":{"21a43886601e":["function (y) ","x"]},"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.2,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+<p>En el último trimestre de la gestión 2019 y de la gestión 2020 se registraron dos los picos más altos en producción total desde 2016. Dejando como mínima la producción del segundo trimestre de la gestión 2016.</p>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Gestión 2023
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Los resultados totales de producción para el año 2023 alcanzaron a registrarse hasta el tercer trimestre, y de manera incompleta.</p>
+</div>
+</div>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Creamos una tabla ilustrativa con el total producido por AÑO:</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>tab1 <span class="ot">&lt;-</span> data_hidro <span class="sc">%&gt;%</span> </span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(AÑO) <span class="sc">%&gt;%</span> </span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">produ_total =</span> <span class="fu">sum</span>(LIQUIDOS)) <span class="sc">%&gt;%</span> </span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">produ_total =</span> scales<span class="sc">::</span><span class="fu">comma</span>(produ_total, <span class="at">big.mark =</span> <span class="st">','</span>)) <span class="co">#Código para visibilizar el separador de miles.</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>tab1 <span class="sc">%&gt;%</span> <span class="co">#kable pertenece a la librería kableExtras </span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable</span>(<span class="at">caption =</span> <span class="st">"Producción Total de Liquidos por Año"</span>, <span class="at">col.names =</span> <span class="fu">c</span>(<span class="st">"Año"</span>,<span class="st">"Producción Total"</span>), <span class="at">align =</span> <span class="st">"c"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_styling</span>(<span class="at">bootstrap_options =</span> <span class="fu">c</span>(<span class="st">"striped"</span>,<span class="st">"hover"</span>,<span class="st">"condensed"</span>,<span class="st">"responsive"</span>)) <span class="co"># "striped": Agrega un efecto de filas alternas sombreadas para mejorar la legibilidad.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div class="table-responsive">
+<table class="table table-striped table-hover table-condensed table-sm small" data-quarto-postprocess="true">
+<caption>Producción Total de Liquidos por Año</caption>
+<thead>
+<tr class="header">
+<th style="text-align: center;" data-quarto-table-cell-role="th">Año</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">Producción Total</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">2016</td>
+<td style="text-align: center;">2,964,610</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">2017</td>
+<td style="text-align: center;">4,673,617</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">2018</td>
+<td style="text-align: center;">4,819,012</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">2019</td>
+<td style="text-align: center;">4,729,452</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">2020</td>
+<td style="text-align: center;">4,815,919</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">2021</td>
+<td style="text-align: center;">4,936,956</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">2022</td>
+<td style="text-align: center;">5,156,121</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">2023</td>
+<td style="text-align: center;">2,689,866</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+
+</div>
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># "hover": Agrega un efecto de resaltado cuando el mouse pasa sobre las filas.</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="co"># "condensed": Reduce el espacio entre las celdas para un diseño más compacto.</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co"># "responsive": Hace que la tabla sea sensible a la pantalla, ajustándose automáticamente para adaptarse a diferentes tamaños de pantalla.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<section id="variación-de-la-producción-respecto-al-año-anterior" class="level3">
+<h3 class="anchored" data-anchor-id="variación-de-la-producción-respecto-al-año-anterior">Variación de la producción respecto al año anterior</h3>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>hist2 <span class="ot">&lt;-</span> data_hidro <span class="sc">%&gt;%</span> </span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(AÑO) <span class="sc">%&gt;%</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(AÑO<span class="sc">!=</span><span class="dv">2023</span>) <span class="sc">%&gt;%</span> <span class="co">#Quitamos cualquier valor de ese año por falta de información.</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">produ_total =</span> <span class="fu">sum</span>(LIQUIDOS)) <span class="sc">%&gt;%</span> </span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">var_anual =</span> (produ_total <span class="sc">/</span> <span class="fu">lag</span>(produ_total)<span class="sc">-</span><span class="dv">1</span>)<span class="sc">*</span><span class="dv">100</span>) <span class="co">#'lag' compara el valor actual con el valor anterior en una secuencia.</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(hist2, <span class="fu">aes</span>(<span class="at">x=</span>AÑO, <span class="at">y =</span> var_anual)) <span class="sc">+</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">position =</span> <span class="st">"dodge"</span>, <span class="at">stat =</span> <span class="st">"identity"</span>, <span class="at">fill=</span><span class="st">"#74C476"</span>, <span class="at">color =</span> <span class="st">"black"</span>)<span class="sc">+</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">label =</span> <span class="fu">round</span>(var_anual,<span class="dv">2</span>)), <span class="at">position =</span> <span class="fu">position_dodge</span>(<span class="at">width =</span> <span class="dv">1</span>), <span class="at">vjust =</span> <span class="sc">-</span><span class="fl">0.5</span>)<span class="sc">+</span></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Variación % de la Producción Total de Líquidos"</span>, <span class="at">x =</span> <span class="st">"Año"</span>, <span class="at">y =</span> <span class="cn">NULL</span> ) <span class="sc">+</span></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="fl">0.5</span>)) <span class="co">#Opción centrar el título del gráfico.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<p><img src="Historico-hidrocarburos_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>De 2016 a 2017, se dió un “boom” petrolero en Bolivia, debido a una combinación de factores, entre los que se destacan:</p>
+<ul>
+<li><p>La puesta en marca de nuevos campos petroleros.</p></li>
+<li><p>El aumento de la inversión en exploración y producción.</p></li>
+<li><p>El aumento de la demanda interna de hidrocarburos.</p></li>
+</ul>
+<p>En el caso específico de Santa Cruz, el crecimiento de la producción de hidrocarburos líquidos se debió también a la mayor participación de las empresas privadas en la actividad petrolera. Lo que contribuyó a aumentar la inversión y la producción en el departamento.</p>
+</section>
+</section>
+<section id="provincias-productoras-de-líquidos" class="level2">
+<h2 class="anchored" data-anchor-id="provincias-productoras-de-líquidos">Provincias Productoras de Líquidos</h2>
+<p>Veamos un poco el historial productivo de las principales provincias de Santa Cruz, así como su participación de cada una en la producción total desde 2016 hasta el 2022.</p>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(RColorBrewer) <span class="co">#Para establecer una paleta de colores. Más colores en:</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="co">#https://r-graph-gallery.com/38-rcolorbrewers-palettes.html</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>miPaleta <span class="ot">&lt;-</span> <span class="fu">brewer.pal</span>(<span class="dv">5</span>, <span class="st">"Greens"</span>) <span class="co">#Guardo en una variable la paleta de colores seleccionada.</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>torta1 <span class="ot">&lt;-</span> data_hidro <span class="sc">%&gt;%</span> </span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(PROVINCIA) <span class="sc">%&gt;%</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(AÑO<span class="sc">!=</span><span class="dv">2023</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">produ_total =</span> <span class="fu">sum</span>(LIQUIDOS)) <span class="sc">%&gt;%</span> </span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">porcion =</span> produ_total <span class="sc">/</span> <span class="fu">sum</span>(produ_total))</span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggrepel) <span class="co">#Librería para 'geom_text_repel', repelencia entre textos. Que no se encaramen.</span></span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(torta1, <span class="fu">aes</span>(<span class="at">x =</span> <span class="st">""</span>, <span class="at">y =</span> porcion, <span class="at">fill =</span> PROVINCIA)) <span class="sc">+</span></span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">"identity"</span>, <span class="at">width =</span> <span class="fl">0.5</span>, <span class="at">color =</span> <span class="st">"black"</span>) <span class="sc">+</span></span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_polar</span>(<span class="st">"y"</span>, <span class="at">start =</span> <span class="dv">0</span>)<span class="sc">+</span></span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> miPaleta)<span class="sc">+</span></span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text_repel</span>(<span class="fu">aes</span>(<span class="at">label =</span> scales<span class="sc">::</span><span class="fu">percent</span>(porcion)), <span class="at">x =</span> <span class="fl">1.36</span>) <span class="sc">+</span> <span class="co">#Función de librería 'ggrepel'</span></span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_void</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<p><img src="Historico-hidrocarburos_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>Desde el 2016 hasta el Trimestre IV-2022, la provincia de Cordillera fue una de las más productivas en el departamento. Mientras que la provincia Andrés Ibañez y Warnes han sido las de menor producción.</p>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Ordenamos los datos</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>tab2 <span class="ot">&lt;-</span> data_hidro <span class="sc">%&gt;%</span> </span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(AÑO, PROVINCIA) <span class="sc">%&gt;%</span> <span class="co">#Agrupamos los datos por año y Provincia.</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(AÑO <span class="sc">!=</span> <span class="dv">2023</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">produ_total =</span> <span class="fu">sum</span>(LIQUIDOS)) <span class="sc">%&gt;%</span> <span class="co">#Creamos la nueva columna.</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(produ_total)) <span class="sc">%&gt;%</span> <span class="co">#Ordenamos de mayor a menor</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">produ_total =</span> scales<span class="sc">::</span><span class="fu">comma</span>(produ_total, <span class="at">big.mark =</span> <span class="st">','</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>( <span class="at">ID =</span> <span class="fu">row_number</span>()) <span class="sc">%&gt;%</span> <span class="co">#Agregamos un identificador único.</span></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_wider</span>(<span class="at">names_from =</span> AÑO, <span class="at">values_from =</span> produ_total) <span class="sc">%&gt;%</span> <span class="co">#Transforma los datos de formato LARGO a formato ANCHO. Identifica los valores en AÑO, y crea columnas para cada uno. Luego llena esas columnas con los valores de produ_total correspondientes.</span></span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(PROVINCIA,<span class="st">`</span><span class="at">2016</span><span class="st">`</span>,<span class="st">`</span><span class="at">2017</span><span class="st">`</span>,<span class="st">`</span><span class="at">2018</span><span class="st">`</span>,<span class="st">`</span><span class="at">2019</span><span class="st">`</span>,<span class="st">`</span><span class="at">2020</span><span class="st">`</span>,<span class="st">`</span><span class="at">2021</span><span class="st">`</span>,<span class="st">`</span><span class="at">2022</span><span class="st">`</span>) <span class="co">#Ordenamos las variables.</span></span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>tab2 <span class="sc">%&gt;%</span> </span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable</span>(<span class="at">caption =</span> <span class="st">"Producción Anual de Liquidos en Provincias"</span>, <span class="at">align =</span> <span class="st">"c"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_styling</span>(<span class="at">bootstrap_options =</span> <span class="fu">c</span>(<span class="st">"striped"</span>,<span class="st">"hover"</span>,<span class="st">"condensed"</span>,<span class="st">"responsive"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div class="table-responsive">
+<table class="table table-striped table-hover table-condensed table-sm small" data-quarto-postprocess="true">
+<caption>Producción Anual de Liquidos en Provincias</caption>
+<thead>
+<tr class="header">
+<th style="text-align: center;" data-quarto-table-cell-role="th">PROVINCIA</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">2016</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">2017</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">2018</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">2019</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">2020</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">2021</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">2022</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">CORDILLERA</td>
+<td style="text-align: center;">1,824,566</td>
+<td style="text-align: center;">3,609,353</td>
+<td style="text-align: center;">3,654,739</td>
+<td style="text-align: center;">3,553,085</td>
+<td style="text-align: center;">3,965,380</td>
+<td style="text-align: center;">4,115,547</td>
+<td style="text-align: center;">4,213,290</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">ICHILO</td>
+<td style="text-align: center;">670,561</td>
+<td style="text-align: center;">679,132</td>
+<td style="text-align: center;">803,597</td>
+<td style="text-align: center;">849,013</td>
+<td style="text-align: center;">539,308</td>
+<td style="text-align: center;">535,436</td>
+<td style="text-align: center;">689,418</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">SARA</td>
+<td style="text-align: center;">378,705</td>
+<td style="text-align: center;">316,546</td>
+<td style="text-align: center;">303,843</td>
+<td style="text-align: center;">275,759</td>
+<td style="text-align: center;">270,413</td>
+<td style="text-align: center;">242,645</td>
+<td style="text-align: center;">215,522</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">ANDRES IBAÑEZ</td>
+<td style="text-align: center;">84,720</td>
+<td style="text-align: center;">62,664</td>
+<td style="text-align: center;">50,790</td>
+<td style="text-align: center;">45,483</td>
+<td style="text-align: center;">34,605</td>
+<td style="text-align: center;">27,880</td>
+<td style="text-align: center;">20,740</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">WARNES</td>
+<td style="text-align: center;">6,057</td>
+<td style="text-align: center;">5,921</td>
+<td style="text-align: center;">6,044</td>
+<td style="text-align: center;">6,110</td>
+<td style="text-align: center;">6,213</td>
+<td style="text-align: center;">15,448</td>
+<td style="text-align: center;">17,150</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+
+</div>
+</div>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Librería para generar este tipo de gráficos.</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggridges)</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>area1 <span class="ot">&lt;-</span> data_hidro <span class="sc">%&gt;%</span> </span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(PROVINCIA,AÑO) <span class="sc">%&gt;%</span> </span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(AÑO<span class="sc">!=</span><span class="dv">2023</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">produ_total =</span> <span class="fu">sum</span>(LIQUIDOS))</span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>a1 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(area1, <span class="fu">aes</span>(<span class="at">x =</span> AÑO, <span class="at">ymin =</span> <span class="dv">0</span>, <span class="at">ymax =</span> produ_total, <span class="at">fill =</span> PROVINCIA))<span class="sc">+</span></span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_ribbon</span>(<span class="at">color =</span> <span class="st">"black"</span>)<span class="sc">+</span> <span class="co">#GRÁFICO DE ÁREAS QUE FUNCIONA MEJOR CON 'ggplotly'</span></span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> miPaleta)<span class="sc">+</span></span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Producción Anual en Provincias"</span>, <span class="at">x =</span> <span class="st">"Año"</span>, <span class="at">y =</span> <span class="st">"Producción Total (MBbls)"</span>)<span class="sc">+</span></span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">labels =</span> scales<span class="sc">::</span><span class="fu">comma_format</span>(<span class="at">scale =</span> <span class="fl">1e-3</span>, <span class="at">big.mark =</span> <span class="st">","</span>))</span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplotly</span>(a1, <span class="at">tooltip =</span> <span class="fu">c</span>(<span class="st">"AÑO"</span>, <span class="st">"produ_total"</span>, <span class="st">"PROVINCIA"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div class="plotly html-widget html-fill-item" id="htmlwidget-2ca7e50b1caee41e77ce" style="width:100%;height:464px;"></div>
+<script type="application/json" data-for="htmlwidget-2ca7e50b1caee41e77ce">{"x":{"data":[{"x":[2016,2017,2018,2019,2020,2021,2022,2022,2021,2020,2019,2018,2017,2016,2016],"y":[0,0,0,0,0,0,0,20740.17,27879.96,34605,45483.42,50789.5,62664.48,84720.42,0],"text":["AÑO: 2016<br />produ_total:   84720.42<br />PROVINCIA: ANDRES IBAÑEZ","AÑO: 2017<br />produ_total:   62664.48<br />PROVINCIA: ANDRES IBAÑEZ","AÑO: 2018<br />produ_total:   50789.50<br />PROVINCIA: ANDRES IBAÑEZ","AÑO: 2019<br />produ_total:   45483.42<br />PROVINCIA: ANDRES IBAÑEZ","AÑO: 2020<br />produ_total:   34605.00<br />PROVINCIA: ANDRES IBAÑEZ","AÑO: 2021<br />produ_total:   27879.96<br />PROVINCIA: ANDRES IBAÑEZ","AÑO: 2022<br />produ_total:   20740.17<br />PROVINCIA: ANDRES IBAÑEZ","AÑO: 2022<br />produ_total:   20740.17<br />PROVINCIA: ANDRES IBAÑEZ","AÑO: 2021<br />produ_total:   27879.96<br />PROVINCIA: ANDRES IBAÑEZ","AÑO: 2020<br />produ_total:   34605.00<br />PROVINCIA: ANDRES IBAÑEZ","AÑO: 2019<br />produ_total:   45483.42<br />PROVINCIA: ANDRES IBAÑEZ","AÑO: 2018<br />produ_total:   50789.50<br />PROVINCIA: ANDRES IBAÑEZ","AÑO: 2017<br />produ_total:   62664.48<br />PROVINCIA: ANDRES IBAÑEZ","AÑO: 2016<br />produ_total:   84720.42<br />PROVINCIA: ANDRES IBAÑEZ","AÑO: 2016<br />produ_total:   84720.42<br />PROVINCIA: ANDRES IBAÑEZ"],"type":"scatter","mode":"lines","line":{"width":1.88976377952756,"color":"rgba(0,0,0,1)","dash":"solid"},"fill":"toself","fillcolor":"rgba(237,248,233,1)","hoveron":"points","name":"ANDRES IBAÑEZ","legendgroup":"ANDRES IBAÑEZ","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[2016,2017,2018,2019,2020,2021,2022,2022,2021,2020,2019,2018,2017,2016,2016],"y":[0,0,0,0,0,0,0,4213290.4,4115547.09,3965380,3553085.49,3654739.0826232,3609353.16,1824565.79,0],"text":["AÑO: 2016<br />produ_total: 1824565.79<br />PROVINCIA: CORDILLERA","AÑO: 2017<br />produ_total: 3609353.16<br />PROVINCIA: CORDILLERA","AÑO: 2018<br />produ_total: 3654739.08<br />PROVINCIA: CORDILLERA","AÑO: 2019<br />produ_total: 3553085.49<br />PROVINCIA: CORDILLERA","AÑO: 2020<br />produ_total: 3965380.00<br />PROVINCIA: CORDILLERA","AÑO: 2021<br />produ_total: 4115547.09<br />PROVINCIA: CORDILLERA","AÑO: 2022<br />produ_total: 4213290.40<br />PROVINCIA: CORDILLERA","AÑO: 2022<br />produ_total: 4213290.40<br />PROVINCIA: CORDILLERA","AÑO: 2021<br />produ_total: 4115547.09<br />PROVINCIA: CORDILLERA","AÑO: 2020<br />produ_total: 3965380.00<br />PROVINCIA: CORDILLERA","AÑO: 2019<br />produ_total: 3553085.49<br />PROVINCIA: CORDILLERA","AÑO: 2018<br />produ_total: 3654739.08<br />PROVINCIA: CORDILLERA","AÑO: 2017<br />produ_total: 3609353.16<br />PROVINCIA: CORDILLERA","AÑO: 2016<br />produ_total: 1824565.79<br />PROVINCIA: CORDILLERA","AÑO: 2016<br />produ_total: 1824565.79<br />PROVINCIA: CORDILLERA"],"type":"scatter","mode":"lines","line":{"width":1.88976377952756,"color":"rgba(0,0,0,1)","dash":"solid"},"fill":"toself","fillcolor":"rgba(186,228,179,1)","hoveron":"points","name":"CORDILLERA","legendgroup":"CORDILLERA","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[2016,2017,2018,2019,2020,2021,2022,2022,2021,2020,2019,2018,2017,2016,2016],"y":[0,0,0,0,0,0,0,689418.24,535436.5,539308,849013.23,803596.81,679132.06,670561.01,0],"text":["AÑO: 2016<br />produ_total:  670561.01<br />PROVINCIA: ICHILO","AÑO: 2017<br />produ_total:  679132.06<br />PROVINCIA: ICHILO","AÑO: 2018<br />produ_total:  803596.81<br />PROVINCIA: ICHILO","AÑO: 2019<br />produ_total:  849013.23<br />PROVINCIA: ICHILO","AÑO: 2020<br />produ_total:  539308.00<br />PROVINCIA: ICHILO","AÑO: 2021<br />produ_total:  535436.50<br />PROVINCIA: ICHILO","AÑO: 2022<br />produ_total:  689418.24<br />PROVINCIA: ICHILO","AÑO: 2022<br />produ_total:  689418.24<br />PROVINCIA: ICHILO","AÑO: 2021<br />produ_total:  535436.50<br />PROVINCIA: ICHILO","AÑO: 2020<br />produ_total:  539308.00<br />PROVINCIA: ICHILO","AÑO: 2019<br />produ_total:  849013.23<br />PROVINCIA: ICHILO","AÑO: 2018<br />produ_total:  803596.81<br />PROVINCIA: ICHILO","AÑO: 2017<br />produ_total:  679132.06<br />PROVINCIA: ICHILO","AÑO: 2016<br />produ_total:  670561.01<br />PROVINCIA: ICHILO","AÑO: 2016<br />produ_total:  670561.01<br />PROVINCIA: ICHILO"],"type":"scatter","mode":"lines","line":{"width":1.88976377952756,"color":"rgba(0,0,0,1)","dash":"solid"},"fill":"toself","fillcolor":"rgba(116,196,118,1)","hoveron":"points","name":"ICHILO","legendgroup":"ICHILO","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[2016,2017,2018,2019,2020,2021,2022,2022,2021,2020,2019,2018,2017,2016,2016],"y":[0,0,0,0,0,0,0,215521.86,242644.57,270413,275759.35,303842.779,316546.36,378705.07,0],"text":["AÑO: 2016<br />produ_total:  378705.07<br />PROVINCIA: SARA","AÑO: 2017<br />produ_total:  316546.36<br />PROVINCIA: SARA","AÑO: 2018<br />produ_total:  303842.78<br />PROVINCIA: SARA","AÑO: 2019<br />produ_total:  275759.35<br />PROVINCIA: SARA","AÑO: 2020<br />produ_total:  270413.00<br />PROVINCIA: SARA","AÑO: 2021<br />produ_total:  242644.57<br />PROVINCIA: SARA","AÑO: 2022<br />produ_total:  215521.86<br />PROVINCIA: SARA","AÑO: 2022<br />produ_total:  215521.86<br />PROVINCIA: SARA","AÑO: 2021<br />produ_total:  242644.57<br />PROVINCIA: SARA","AÑO: 2020<br />produ_total:  270413.00<br />PROVINCIA: SARA","AÑO: 2019<br />produ_total:  275759.35<br />PROVINCIA: SARA","AÑO: 2018<br />produ_total:  303842.78<br />PROVINCIA: SARA","AÑO: 2017<br />produ_total:  316546.36<br />PROVINCIA: SARA","AÑO: 2016<br />produ_total:  378705.07<br />PROVINCIA: SARA","AÑO: 2016<br />produ_total:  378705.07<br />PROVINCIA: SARA"],"type":"scatter","mode":"lines","line":{"width":1.88976377952756,"color":"rgba(0,0,0,1)","dash":"solid"},"fill":"toself","fillcolor":"rgba(49,163,84,1)","hoveron":"points","name":"SARA","legendgroup":"SARA","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[2016,2017,2018,2019,2020,2021,2022,2022,2022,2021,2020,2019,2018,2017,2016,2016],"y":[0,0,0,0,0,0,0,0,17150.19,15448.06,6213,6110.43,6044,5920.78,6057.26,0],"text":["AÑO: 2016<br />produ_total:    6057.26<br />PROVINCIA: WARNES","AÑO: 2017<br />produ_total:    5920.78<br />PROVINCIA: WARNES","AÑO: 2018<br />produ_total:    6044.00<br />PROVINCIA: WARNES","AÑO: 2019<br />produ_total:    6110.43<br />PROVINCIA: WARNES","AÑO: 2020<br />produ_total:    6213.00<br />PROVINCIA: WARNES","AÑO: 2021<br />produ_total:   15448.06<br />PROVINCIA: WARNES","AÑO: 2022<br />produ_total:   17150.19<br />PROVINCIA: WARNES","AÑO: 2022<br />produ_total:   17150.19<br />PROVINCIA: WARNES","AÑO: 2022<br />produ_total:   17150.19<br />PROVINCIA: WARNES","AÑO: 2021<br />produ_total:   15448.06<br />PROVINCIA: WARNES","AÑO: 2020<br />produ_total:    6213.00<br />PROVINCIA: WARNES","AÑO: 2019<br />produ_total:    6110.43<br />PROVINCIA: WARNES","AÑO: 2018<br />produ_total:    6044.00<br />PROVINCIA: WARNES","AÑO: 2017<br />produ_total:    5920.78<br />PROVINCIA: WARNES","AÑO: 2016<br />produ_total:    6057.26<br />PROVINCIA: WARNES","AÑO: 2016<br />produ_total:    6057.26<br />PROVINCIA: WARNES"],"type":"scatter","mode":"lines","line":{"width":1.88976377952756,"color":"rgba(0,0,0,1)","dash":"solid"},"fill":"toself","fillcolor":"rgba(0,109,44,1)","hoveron":"points","name":"WARNES","legendgroup":"WARNES","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null}],"layout":{"margin":{"t":43.7625570776256,"r":7.30593607305936,"b":40.1826484018265,"l":54.7945205479452},"plot_bgcolor":"rgba(235,235,235,1)","paper_bgcolor":"rgba(255,255,255,1)","font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187},"title":{"text":"Producción Anual en Provincias","font":{"color":"rgba(0,0,0,1)","family":"","size":17.5342465753425},"x":0,"xref":"paper"},"xaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[2015.7,2022.3],"tickmode":"array","ticktext":["2016","2018","2020","2022"],"tickvals":[2016,2018,2020,2022],"categoryorder":"array","categoryarray":["2016","2018","2020","2022"],"nticks":null,"ticks":"outside","tickcolor":"rgba(51,51,51,1)","ticklen":3.65296803652968,"tickwidth":0.66417600664176,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":11.689497716895},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(255,255,255,1)","gridwidth":0.66417600664176,"zeroline":false,"anchor":"y","title":{"text":"Año","font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187}},"hoverformat":".2f"},"yaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[-210664.52,4423954.92],"tickmode":"array","ticktext":["0","1,000","2,000","3,000","4,000"],"tickvals":[0,1000000,2000000,3000000,4000000],"categoryorder":"array","categoryarray":["0","1,000","2,000","3,000","4,000"],"nticks":null,"ticks":"outside","tickcolor":"rgba(51,51,51,1)","ticklen":3.65296803652968,"tickwidth":0.66417600664176,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":11.689497716895},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(255,255,255,1)","gridwidth":0.66417600664176,"zeroline":false,"anchor":"x","title":{"text":"Producción Total (MBbls)","font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187}},"hoverformat":".2f"},"shapes":[{"type":"rect","fillcolor":null,"line":{"color":null,"width":0,"linetype":[]},"yref":"paper","xref":"paper","x0":0,"x1":1,"y0":0,"y1":1}],"showlegend":true,"legend":{"bgcolor":"rgba(255,255,255,1)","bordercolor":"transparent","borderwidth":1.88976377952756,"font":{"color":"rgba(0,0,0,1)","family":"","size":11.689497716895},"title":{"text":"PROVINCIA","font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187}}},"hovermode":"closest","barmode":"relative"},"config":{"doubleClick":"reset","modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"source":"A","attrs":{"21a49904e19":{"x":{},"ymin":{},"ymax":{},"fill":{},"type":"scatter"}},"cur_data":"21a49904e19","visdat":{"21a49904e19":["function (y) ","x"]},"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.2,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+<!-- -->
+
+</section>
+
+</main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  const viewSource = window.document.getElementById('quarto-view-source') ||
+                     window.document.getElementById('quarto-code-tools-source');
+  if (viewSource) {
+    const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
+    viewSource.addEventListener("click", function(e) {
+      if (sourceUrl) {
+        // rstudio viewer pane
+        if (/\bcapabilities=\b/.test(window.location)) {
+          window.open(sourceUrl);
+        } else {
+          window.location.href = sourceUrl;
+        }
+      } else {
+        const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
+        modal.show();
+      }
+      return false;
+    });
+  }
+  function toggleCodeHandler(show) {
+    return function(e) {
+      const detailsSrc = window.document.querySelectorAll(".cell > details > .sourceCode");
+      for (let i=0; i<detailsSrc.length; i++) {
+        const details = detailsSrc[i].parentElement;
+        if (show) {
+          details.open = true;
+        } else {
+          details.removeAttribute("open");
+        }
+      }
+      const cellCodeDivs = window.document.querySelectorAll(".cell > .sourceCode");
+      const fromCls = show ? "hidden" : "unhidden";
+      const toCls = show ? "unhidden" : "hidden";
+      for (let i=0; i<cellCodeDivs.length; i++) {
+        const codeDiv = cellCodeDivs[i];
+        if (codeDiv.classList.contains(fromCls)) {
+          codeDiv.classList.remove(fromCls);
+          codeDiv.classList.add(toCls);
+        } 
+      }
+      return false;
+    }
+  }
+  const hideAllCode = window.document.getElementById("quarto-hide-all-code");
+  if (hideAllCode) {
+    hideAllCode.addEventListener("click", toggleCodeHandler(false));
+  }
+  const showAllCode = window.document.getElementById("quarto-show-all-code");
+  if (showAllCode) {
+    showAllCode.addEventListener("click", toggleCodeHandler(true));
+  }
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
+<div class="sourceCode" id="cb8" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "HIDROCARBUROS - UN ANALISIS DESCRIPTIVO"</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="an">author:</span><span class="co"> "Augusto Alvarez"</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="an">date:</span><span class="co"> "`r Sys.Date()`"</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="an">format:</span></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="co">  html:</span></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a><span class="co">    code-tools: true</span></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a><span class="co">    code-fold: true</span></span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a><span class="co">    theme: flatly</span></span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a><span class="co">    toc: True</span></span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a><span class="co">    html-math-method: katex</span></span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a><span class="co">    css: styles.css</span></span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a><span class="an">editor_options:</span></span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a><span class="co">  chunk_output_type: console</span></span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a><span class="in">```{r setup, include=FALSE}</span></span>
+<span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span>opts_chunk<span class="sc">$</span><span class="fu">set</span>(</span>
+<span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a>    <span class="at">echo =</span> <span class="cn">TRUE</span>, </span>
+<span id="cb8-20"><a href="#cb8-20" aria-hidden="true" tabindex="-1"></a>    <span class="at">message =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb8-21"><a href="#cb8-21" aria-hidden="true" tabindex="-1"></a>    <span class="at">warning =</span> <span class="cn">FALSE</span></span>
+<span id="cb8-22"><a href="#cb8-22" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb8-23"><a href="#cb8-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-24"><a href="#cb8-24" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(kableExtra) <span class="co">#Para crear tablas ilustrativas interesantes.</span></span>
+<span id="cb8-25"><a href="#cb8-25" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(openxlsx) <span class="co">#Para descargar archivos desde la web.</span></span>
+<span id="cb8-26"><a href="#cb8-26" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb8-27"><a href="#cb8-27" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(janitor)</span>
+<span id="cb8-28"><a href="#cb8-28" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(flextable)</span>
+<span id="cb8-29"><a href="#cb8-29" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb8-30"><a href="#cb8-30" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(plotly) <span class="co">#Librería para gráficos interactivos.</span></span>
+<span id="cb8-31"><a href="#cb8-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-32"><a href="#cb8-32" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">"E:/(ICE) Instituto Cruceno de Estadistica/Historicos Hidrocarburos 2023"</span>)</span>
+<span id="cb8-33"><a href="#cb8-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-34"><a href="#cb8-34" aria-hidden="true" tabindex="-1"></a>data_hidro <span class="ot">&lt;-</span> <span class="fu">read.xlsx</span>(<span class="st">"E:/(ICE) Instituto Cruceno de Estadistica/Historicos Hidrocarburos 2023/Hidros.xlsx"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb8-35"><a href="#cb8-35" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">ID =</span> <span class="fu">row_number</span>())</span>
+<span id="cb8-36"><a href="#cb8-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-37"><a href="#cb8-37" aria-hidden="true" tabindex="-1"></a><span class="fu">as_tibble</span>(data_hidro)</span>
+<span id="cb8-38"><a href="#cb8-38" aria-hidden="true" tabindex="-1"></a><span class="fu">options</span>(<span class="at">scipen=</span><span class="dv">999</span>)</span>
+<span id="cb8-39"><a href="#cb8-39" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb8-40"><a href="#cb8-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-41"><a href="#cb8-41" aria-hidden="true" tabindex="-1"></a><span class="fu">## Introducción</span></span>
+<span id="cb8-42"><a href="#cb8-42" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-43"><a href="#cb8-43" aria-hidden="true" tabindex="-1"></a>El presente análisis fue inspirado en el boletín estadístico de *Hidrocarburos de Santa Cruz* del Instituto Cruceño de Estadística (ICE). Muchos de los datos fueron suministrados tanto por el Viceministerio de Exploración y Explotación de Recursos Energéticos como de la Dirección de Minas, Hidrocarburos y Energía.</span>
+<span id="cb8-44"><a href="#cb8-44" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-45"><a href="#cb8-45" aria-hidden="true" tabindex="-1"></a><span class="fu">## Líquidos</span></span>
+<span id="cb8-46"><a href="#cb8-46" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-47"><a href="#cb8-47" aria-hidden="true" tabindex="-1"></a>Los líquidos de petróleo, comúnmente conocidos como crudo, son la materia prima clave para la producción de una amplia gama de productos. Estos incluyen gasolina, diésel, queroseno, aceites lubricantes, asfalto, y productos petroquímicos que se utilizan en la fabricación de plásticos, fertilizantes y productos químicos. </span>
+<span id="cb8-48"><a href="#cb8-48" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-49"><a href="#cb8-49" aria-hidden="true" tabindex="-1"></a><span class="fu">### Generalidades</span></span>
+<span id="cb8-50"><a href="#cb8-50" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-51"><a href="#cb8-51" aria-hidden="true" tabindex="-1"></a>Veamos ahora algunos datos de conocimiento general dentro del rubro petrolero boliviano y cruceño.</span>
+<span id="cb8-52"><a href="#cb8-52" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-53"><a href="#cb8-53" aria-hidden="true" tabindex="-1"></a>::: callout-note</span>
+<span id="cb8-54"><a href="#cb8-54" aria-hidden="true" tabindex="-1"></a><span class="fu">## Bolivia</span></span>
+<span id="cb8-55"><a href="#cb8-55" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-56"><a href="#cb8-56" aria-hidden="true" tabindex="-1"></a>Bolivia cuenta con 4 departamentos productores de liquidos: Tarija, Santa Cruz, Chuquisaca y Cochabamba.</span>
+<span id="cb8-57"><a href="#cb8-57" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb8-58"><a href="#cb8-58" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-59"><a href="#cb8-59" aria-hidden="true" tabindex="-1"></a>::: callout-note</span>
+<span id="cb8-60"><a href="#cb8-60" aria-hidden="true" tabindex="-1"></a><span class="fu">## Segundo mayor productor</span></span>
+<span id="cb8-61"><a href="#cb8-61" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-62"><a href="#cb8-62" aria-hidden="true" tabindex="-1"></a>Al 2022 a nivel nacional, Santa Cruz fue el segundo productor con una participación del 39.6%.</span>
+<span id="cb8-63"><a href="#cb8-63" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb8-64"><a href="#cb8-64" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-65"><a href="#cb8-65" aria-hidden="true" tabindex="-1"></a>::: callout-note</span>
+<span id="cb8-66"><a href="#cb8-66" aria-hidden="true" tabindex="-1"></a><span class="fu">## Santa Cruz</span></span>
+<span id="cb8-67"><a href="#cb8-67" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-68"><a href="#cb8-68" aria-hidden="true" tabindex="-1"></a>Santa Cruz cuenta con 5 provincias productoras de líquidos: Cordillera, Ichilo, Sara, Warnes y Andrés Ibáñez. Cordillera produjo en 2022 un 81.7% de la producción del departamento.</span>
+<span id="cb8-69"><a href="#cb8-69" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb8-70"><a href="#cb8-70" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-71"><a href="#cb8-71" aria-hidden="true" tabindex="-1"></a><span class="fu">## Histórico de la Producción Trimestral de Líquidos</span></span>
+<span id="cb8-72"><a href="#cb8-72" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-75"><a href="#cb8-75" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb8-76"><a href="#cb8-76" aria-hidden="true" tabindex="-1"></a><span class="co">#Creamos el vector con los meses por número:</span></span>
+<span id="cb8-77"><a href="#cb8-77" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-78"><a href="#cb8-78" aria-hidden="true" tabindex="-1"></a>nmeses <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>,<span class="dv">7</span>,<span class="dv">8</span>,<span class="dv">9</span>,<span class="dv">10</span>,<span class="dv">11</span>,<span class="dv">12</span>)</span>
+<span id="cb8-79"><a href="#cb8-79" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-80"><a href="#cb8-80" aria-hidden="true" tabindex="-1"></a><span class="co">#Creamos la columna que contenga el vector:</span></span>
+<span id="cb8-81"><a href="#cb8-81" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-82"><a href="#cb8-82" aria-hidden="true" tabindex="-1"></a>data_hidro <span class="ot">&lt;-</span> data_hidro <span class="sc">%&gt;%</span> </span>
+<span id="cb8-83"><a href="#cb8-83" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">nMESES =</span> <span class="fu">rep</span>(nmeses, <span class="at">length.out =</span> <span class="fu">n</span>()))</span>
+<span id="cb8-84"><a href="#cb8-84" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-85"><a href="#cb8-85" aria-hidden="true" tabindex="-1"></a><span class="co">#Usamos la función quarter para crear por orden los trimestres:</span></span>
+<span id="cb8-86"><a href="#cb8-86" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-87"><a href="#cb8-87" aria-hidden="true" tabindex="-1"></a>data_hidro<span class="sc">$</span>TRIM <span class="ot">&lt;-</span> <span class="fu">quarter</span>(data_hidro<span class="sc">$</span>nMESES, <span class="at">type =</span> <span class="st">"quarter"</span>, <span class="at">fiscal_start =</span> <span class="dv">1</span>)</span>
+<span id="cb8-88"><a href="#cb8-88" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-89"><a href="#cb8-89" aria-hidden="true" tabindex="-1"></a><span class="co">#Creamos el histograma:</span></span>
+<span id="cb8-90"><a href="#cb8-90" aria-hidden="true" tabindex="-1"></a>hist1 <span class="ot">&lt;-</span> data_hidro <span class="sc">%&gt;%</span> </span>
+<span id="cb8-91"><a href="#cb8-91" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(AÑO, TRIM) <span class="sc">%&gt;%</span> </span>
+<span id="cb8-92"><a href="#cb8-92" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">produ_total =</span> <span class="fu">sum</span>(LIQUIDOS))</span>
+<span id="cb8-93"><a href="#cb8-93" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-94"><a href="#cb8-94" aria-hidden="true" tabindex="-1"></a>g <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(hist1, <span class="fu">aes</span>(<span class="at">x =</span> TRIM, <span class="at">y =</span> produ_total))<span class="sc">+</span></span>
+<span id="cb8-95"><a href="#cb8-95" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">position =</span> <span class="st">"dodge"</span>,<span class="at">stat =</span> <span class="st">"identity"</span>, <span class="at">fill =</span> <span class="st">"#74C476"</span>, <span class="at">color =</span> <span class="st">"black"</span>)<span class="sc">+</span></span>
+<span id="cb8-96"><a href="#cb8-96" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Producción trimestral de líquidos en Santa Cruz"</span>, <span class="at">x =</span> <span class="st">"Trimestre"</span>, <span class="at">y =</span> <span class="st">"Producción total (MBbls)"</span>) <span class="sc">+</span></span>
+<span id="cb8-97"><a href="#cb8-97" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_grid</span>(<span class="sc">~</span>AÑO)<span class="sc">+</span></span>
+<span id="cb8-98"><a href="#cb8-98" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">labels =</span> scales<span class="sc">::</span><span class="fu">comma_format</span>(<span class="at">scale =</span> <span class="fl">1e-3</span>, <span class="at">big.mark =</span> <span class="st">","</span>)) <span class="co">#Línea de código para modificar labels en Y.</span></span>
+<span id="cb8-99"><a href="#cb8-99" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-100"><a href="#cb8-100" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplotly</span>(g)</span>
+<span id="cb8-101"><a href="#cb8-101" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb8-102"><a href="#cb8-102" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-103"><a href="#cb8-103" aria-hidden="true" tabindex="-1"></a>En el último trimestre de la gestión 2019 y de la gestión 2020 se registraron dos los picos más altos en producción total desde 2016. Dejando como mínima la producción del segundo trimestre de la gestión 2016.</span>
+<span id="cb8-104"><a href="#cb8-104" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-105"><a href="#cb8-105" aria-hidden="true" tabindex="-1"></a>::: callout-caution</span>
+<span id="cb8-106"><a href="#cb8-106" aria-hidden="true" tabindex="-1"></a><span class="fu">## Gestión 2023</span></span>
+<span id="cb8-107"><a href="#cb8-107" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-108"><a href="#cb8-108" aria-hidden="true" tabindex="-1"></a>Los resultados totales de producción para el año 2023 alcanzaron a registrarse hasta el tercer trimestre, y de manera incompleta.</span>
+<span id="cb8-109"><a href="#cb8-109" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb8-110"><a href="#cb8-110" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-113"><a href="#cb8-113" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb8-114"><a href="#cb8-114" aria-hidden="true" tabindex="-1"></a><span class="co">#Creamos una tabla ilustrativa con el total producido por AÑO:</span></span>
+<span id="cb8-115"><a href="#cb8-115" aria-hidden="true" tabindex="-1"></a>tab1 <span class="ot">&lt;-</span> data_hidro <span class="sc">%&gt;%</span> </span>
+<span id="cb8-116"><a href="#cb8-116" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(AÑO) <span class="sc">%&gt;%</span> </span>
+<span id="cb8-117"><a href="#cb8-117" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">produ_total =</span> <span class="fu">sum</span>(LIQUIDOS)) <span class="sc">%&gt;%</span> </span>
+<span id="cb8-118"><a href="#cb8-118" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">produ_total =</span> scales<span class="sc">::</span><span class="fu">comma</span>(produ_total, <span class="at">big.mark =</span> <span class="st">','</span>)) <span class="co">#Código para visibilizar el separador de miles.</span></span>
+<span id="cb8-119"><a href="#cb8-119" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-120"><a href="#cb8-120" aria-hidden="true" tabindex="-1"></a>tab1 <span class="sc">%&gt;%</span> <span class="co">#kable pertenece a la librería kableExtras </span></span>
+<span id="cb8-121"><a href="#cb8-121" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable</span>(<span class="at">caption =</span> <span class="st">"Producción Total de Liquidos por Año"</span>, <span class="at">col.names =</span> <span class="fu">c</span>(<span class="st">"Año"</span>,<span class="st">"Producción Total"</span>), <span class="at">align =</span> <span class="st">"c"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb8-122"><a href="#cb8-122" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_styling</span>(<span class="at">bootstrap_options =</span> <span class="fu">c</span>(<span class="st">"striped"</span>,<span class="st">"hover"</span>,<span class="st">"condensed"</span>,<span class="st">"responsive"</span>)) <span class="co"># "striped": Agrega un efecto de filas alternas sombreadas para mejorar la legibilidad.</span></span>
+<span id="cb8-123"><a href="#cb8-123" aria-hidden="true" tabindex="-1"></a><span class="co"># "hover": Agrega un efecto de resaltado cuando el mouse pasa sobre las filas.</span></span>
+<span id="cb8-124"><a href="#cb8-124" aria-hidden="true" tabindex="-1"></a><span class="co"># "condensed": Reduce el espacio entre las celdas para un diseño más compacto.</span></span>
+<span id="cb8-125"><a href="#cb8-125" aria-hidden="true" tabindex="-1"></a><span class="co"># "responsive": Hace que la tabla sea sensible a la pantalla, ajustándose automáticamente para adaptarse a diferentes tamaños de pantalla.</span></span>
+<span id="cb8-126"><a href="#cb8-126" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb8-127"><a href="#cb8-127" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-128"><a href="#cb8-128" aria-hidden="true" tabindex="-1"></a><span class="fu">### Variación de la producción respecto al año anterior</span></span>
+<span id="cb8-129"><a href="#cb8-129" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-132"><a href="#cb8-132" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb8-133"><a href="#cb8-133" aria-hidden="true" tabindex="-1"></a>hist2 <span class="ot">&lt;-</span> data_hidro <span class="sc">%&gt;%</span> </span>
+<span id="cb8-134"><a href="#cb8-134" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(AÑO) <span class="sc">%&gt;%</span></span>
+<span id="cb8-135"><a href="#cb8-135" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(AÑO<span class="sc">!=</span><span class="dv">2023</span>) <span class="sc">%&gt;%</span> <span class="co">#Quitamos cualquier valor de ese año por falta de información.</span></span>
+<span id="cb8-136"><a href="#cb8-136" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">produ_total =</span> <span class="fu">sum</span>(LIQUIDOS)) <span class="sc">%&gt;%</span> </span>
+<span id="cb8-137"><a href="#cb8-137" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">var_anual =</span> (produ_total <span class="sc">/</span> <span class="fu">lag</span>(produ_total)<span class="sc">-</span><span class="dv">1</span>)<span class="sc">*</span><span class="dv">100</span>) <span class="co">#'lag' compara el valor actual con el valor anterior en una secuencia.</span></span>
+<span id="cb8-138"><a href="#cb8-138" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-139"><a href="#cb8-139" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(hist2, <span class="fu">aes</span>(<span class="at">x=</span>AÑO, <span class="at">y =</span> var_anual)) <span class="sc">+</span></span>
+<span id="cb8-140"><a href="#cb8-140" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">position =</span> <span class="st">"dodge"</span>, <span class="at">stat =</span> <span class="st">"identity"</span>, <span class="at">fill=</span><span class="st">"#74C476"</span>, <span class="at">color =</span> <span class="st">"black"</span>)<span class="sc">+</span></span>
+<span id="cb8-141"><a href="#cb8-141" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">label =</span> <span class="fu">round</span>(var_anual,<span class="dv">2</span>)), <span class="at">position =</span> <span class="fu">position_dodge</span>(<span class="at">width =</span> <span class="dv">1</span>), <span class="at">vjust =</span> <span class="sc">-</span><span class="fl">0.5</span>)<span class="sc">+</span></span>
+<span id="cb8-142"><a href="#cb8-142" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Variación % de la Producción Total de Líquidos"</span>, <span class="at">x =</span> <span class="st">"Año"</span>, <span class="at">y =</span> <span class="cn">NULL</span> ) <span class="sc">+</span></span>
+<span id="cb8-143"><a href="#cb8-143" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="fl">0.5</span>)) <span class="co">#Opción centrar el título del gráfico.</span></span>
+<span id="cb8-144"><a href="#cb8-144" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb8-145"><a href="#cb8-145" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb8-146"><a href="#cb8-146" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-147"><a href="#cb8-147" aria-hidden="true" tabindex="-1"></a>De 2016 a 2017, se dió un "boom" petrolero en Bolivia, debido a una combinación de factores, entre los que se destacan:</span>
+<span id="cb8-148"><a href="#cb8-148" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-149"><a href="#cb8-149" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>La puesta en marca de nuevos campos petroleros.</span>
+<span id="cb8-150"><a href="#cb8-150" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-151"><a href="#cb8-151" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>El aumento de la inversión en exploración y producción.</span>
+<span id="cb8-152"><a href="#cb8-152" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-153"><a href="#cb8-153" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>El aumento de la demanda interna de hidrocarburos.</span>
+<span id="cb8-154"><a href="#cb8-154" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-155"><a href="#cb8-155" aria-hidden="true" tabindex="-1"></a>En el caso específico de Santa Cruz, el crecimiento de la producción de hidrocarburos líquidos se debió también a la mayor participación de las empresas privadas en la actividad petrolera. Lo que contribuyó a aumentar la inversión y la producción en el departamento.</span>
+<span id="cb8-156"><a href="#cb8-156" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-157"><a href="#cb8-157" aria-hidden="true" tabindex="-1"></a><span class="fu">## Provincias Productoras de Líquidos</span></span>
+<span id="cb8-158"><a href="#cb8-158" aria-hidden="true" tabindex="-1"></a>Veamos un poco el historial productivo de las principales provincias de Santa Cruz, así como su participación de cada una en la producción total desde 2016 hasta el 2022.</span>
+<span id="cb8-159"><a href="#cb8-159" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-162"><a href="#cb8-162" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb8-163"><a href="#cb8-163" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(RColorBrewer) <span class="co">#Para establecer una paleta de colores. Más colores en:</span></span>
+<span id="cb8-164"><a href="#cb8-164" aria-hidden="true" tabindex="-1"></a><span class="co">#https://r-graph-gallery.com/38-rcolorbrewers-palettes.html</span></span>
+<span id="cb8-165"><a href="#cb8-165" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-166"><a href="#cb8-166" aria-hidden="true" tabindex="-1"></a>miPaleta <span class="ot">&lt;-</span> <span class="fu">brewer.pal</span>(<span class="dv">5</span>, <span class="st">"Greens"</span>) <span class="co">#Guardo en una variable la paleta de colores seleccionada.</span></span>
+<span id="cb8-167"><a href="#cb8-167" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-168"><a href="#cb8-168" aria-hidden="true" tabindex="-1"></a>torta1 <span class="ot">&lt;-</span> data_hidro <span class="sc">%&gt;%</span> </span>
+<span id="cb8-169"><a href="#cb8-169" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(PROVINCIA) <span class="sc">%&gt;%</span></span>
+<span id="cb8-170"><a href="#cb8-170" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(AÑO<span class="sc">!=</span><span class="dv">2023</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb8-171"><a href="#cb8-171" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">produ_total =</span> <span class="fu">sum</span>(LIQUIDOS)) <span class="sc">%&gt;%</span> </span>
+<span id="cb8-172"><a href="#cb8-172" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">porcion =</span> produ_total <span class="sc">/</span> <span class="fu">sum</span>(produ_total))</span>
+<span id="cb8-173"><a href="#cb8-173" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-174"><a href="#cb8-174" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggrepel) <span class="co">#Librería para 'geom_text_repel', repelencia entre textos. Que no se encaramen.</span></span>
+<span id="cb8-175"><a href="#cb8-175" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-176"><a href="#cb8-176" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(torta1, <span class="fu">aes</span>(<span class="at">x =</span> <span class="st">""</span>, <span class="at">y =</span> porcion, <span class="at">fill =</span> PROVINCIA)) <span class="sc">+</span></span>
+<span id="cb8-177"><a href="#cb8-177" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">"identity"</span>, <span class="at">width =</span> <span class="fl">0.5</span>, <span class="at">color =</span> <span class="st">"black"</span>) <span class="sc">+</span></span>
+<span id="cb8-178"><a href="#cb8-178" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_polar</span>(<span class="st">"y"</span>, <span class="at">start =</span> <span class="dv">0</span>)<span class="sc">+</span></span>
+<span id="cb8-179"><a href="#cb8-179" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> miPaleta)<span class="sc">+</span></span>
+<span id="cb8-180"><a href="#cb8-180" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text_repel</span>(<span class="fu">aes</span>(<span class="at">label =</span> scales<span class="sc">::</span><span class="fu">percent</span>(porcion)), <span class="at">x =</span> <span class="fl">1.36</span>) <span class="sc">+</span> <span class="co">#Función de librería 'ggrepel'</span></span>
+<span id="cb8-181"><a href="#cb8-181" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_void</span>()</span>
+<span id="cb8-182"><a href="#cb8-182" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-183"><a href="#cb8-183" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb8-184"><a href="#cb8-184" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-185"><a href="#cb8-185" aria-hidden="true" tabindex="-1"></a>Desde el 2016 hasta el Trimestre IV-2022, la provincia de Cordillera fue una de las más productivas en el departamento. Mientras que la provincia Andrés Ibañez y Warnes han sido las de menor producción.</span>
+<span id="cb8-186"><a href="#cb8-186" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-189"><a href="#cb8-189" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb8-190"><a href="#cb8-190" aria-hidden="true" tabindex="-1"></a><span class="co">#Ordenamos los datos</span></span>
+<span id="cb8-191"><a href="#cb8-191" aria-hidden="true" tabindex="-1"></a>tab2 <span class="ot">&lt;-</span> data_hidro <span class="sc">%&gt;%</span> </span>
+<span id="cb8-192"><a href="#cb8-192" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(AÑO, PROVINCIA) <span class="sc">%&gt;%</span> <span class="co">#Agrupamos los datos por año y Provincia.</span></span>
+<span id="cb8-193"><a href="#cb8-193" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(AÑO <span class="sc">!=</span> <span class="dv">2023</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb8-194"><a href="#cb8-194" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">produ_total =</span> <span class="fu">sum</span>(LIQUIDOS)) <span class="sc">%&gt;%</span> <span class="co">#Creamos la nueva columna.</span></span>
+<span id="cb8-195"><a href="#cb8-195" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(produ_total)) <span class="sc">%&gt;%</span> <span class="co">#Ordenamos de mayor a menor</span></span>
+<span id="cb8-196"><a href="#cb8-196" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">produ_total =</span> scales<span class="sc">::</span><span class="fu">comma</span>(produ_total, <span class="at">big.mark =</span> <span class="st">','</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb8-197"><a href="#cb8-197" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>( <span class="at">ID =</span> <span class="fu">row_number</span>()) <span class="sc">%&gt;%</span> <span class="co">#Agregamos un identificador único.</span></span>
+<span id="cb8-198"><a href="#cb8-198" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_wider</span>(<span class="at">names_from =</span> AÑO, <span class="at">values_from =</span> produ_total) <span class="sc">%&gt;%</span> <span class="co">#Transforma los datos de formato LARGO a formato ANCHO. Identifica los valores en AÑO, y crea columnas para cada uno. Luego llena esas columnas con los valores de produ_total correspondientes.</span></span>
+<span id="cb8-199"><a href="#cb8-199" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(PROVINCIA,<span class="st">`</span><span class="at">2016</span><span class="st">`</span>,<span class="st">`</span><span class="at">2017</span><span class="st">`</span>,<span class="st">`</span><span class="at">2018</span><span class="st">`</span>,<span class="st">`</span><span class="at">2019</span><span class="st">`</span>,<span class="st">`</span><span class="at">2020</span><span class="st">`</span>,<span class="st">`</span><span class="at">2021</span><span class="st">`</span>,<span class="st">`</span><span class="at">2022</span><span class="st">`</span>) <span class="co">#Ordenamos las variables.</span></span>
+<span id="cb8-200"><a href="#cb8-200" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb8-201"><a href="#cb8-201" aria-hidden="true" tabindex="-1"></a>tab2 <span class="sc">%&gt;%</span> </span>
+<span id="cb8-202"><a href="#cb8-202" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable</span>(<span class="at">caption =</span> <span class="st">"Producción Anual de Liquidos en Provincias"</span>, <span class="at">align =</span> <span class="st">"c"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb8-203"><a href="#cb8-203" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_styling</span>(<span class="at">bootstrap_options =</span> <span class="fu">c</span>(<span class="st">"striped"</span>,<span class="st">"hover"</span>,<span class="st">"condensed"</span>,<span class="st">"responsive"</span>))</span>
+<span id="cb8-204"><a href="#cb8-204" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb8-205"><a href="#cb8-205" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-206"><a href="#cb8-206" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-209"><a href="#cb8-209" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb8-210"><a href="#cb8-210" aria-hidden="true" tabindex="-1"></a><span class="co">#Librería para generar este tipo de gráficos.</span></span>
+<span id="cb8-211"><a href="#cb8-211" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggridges)</span>
+<span id="cb8-212"><a href="#cb8-212" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-213"><a href="#cb8-213" aria-hidden="true" tabindex="-1"></a>area1 <span class="ot">&lt;-</span> data_hidro <span class="sc">%&gt;%</span> </span>
+<span id="cb8-214"><a href="#cb8-214" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(PROVINCIA,AÑO) <span class="sc">%&gt;%</span> </span>
+<span id="cb8-215"><a href="#cb8-215" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(AÑO<span class="sc">!=</span><span class="dv">2023</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb8-216"><a href="#cb8-216" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">produ_total =</span> <span class="fu">sum</span>(LIQUIDOS))</span>
+<span id="cb8-217"><a href="#cb8-217" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-218"><a href="#cb8-218" aria-hidden="true" tabindex="-1"></a>a1 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(area1, <span class="fu">aes</span>(<span class="at">x =</span> AÑO, <span class="at">ymin =</span> <span class="dv">0</span>, <span class="at">ymax =</span> produ_total, <span class="at">fill =</span> PROVINCIA))<span class="sc">+</span></span>
+<span id="cb8-219"><a href="#cb8-219" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_ribbon</span>(<span class="at">color =</span> <span class="st">"black"</span>)<span class="sc">+</span> <span class="co">#GRÁFICO DE ÁREAS QUE FUNCIONA MEJOR CON 'ggplotly'</span></span>
+<span id="cb8-220"><a href="#cb8-220" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> miPaleta)<span class="sc">+</span></span>
+<span id="cb8-221"><a href="#cb8-221" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Producción Anual en Provincias"</span>, <span class="at">x =</span> <span class="st">"Año"</span>, <span class="at">y =</span> <span class="st">"Producción Total (MBbls)"</span>)<span class="sc">+</span></span>
+<span id="cb8-222"><a href="#cb8-222" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">labels =</span> scales<span class="sc">::</span><span class="fu">comma_format</span>(<span class="at">scale =</span> <span class="fl">1e-3</span>, <span class="at">big.mark =</span> <span class="st">","</span>))</span>
+<span id="cb8-223"><a href="#cb8-223" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-224"><a href="#cb8-224" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplotly</span>(a1, <span class="at">tooltip =</span> <span class="fu">c</span>(<span class="st">"AÑO"</span>, <span class="st">"produ_total"</span>, <span class="st">"PROVINCIA"</span>))</span>
+<span id="cb8-225"><a href="#cb8-225" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+</code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div></div></div></div></div>
+</div> <!-- /content -->
+
+
+
+</body></html>
